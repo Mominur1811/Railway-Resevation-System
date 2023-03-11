@@ -1,0 +1,193 @@
+﻿@model Railway_Ticket_Book.Context.vehicle
+@{
+    ViewBag.Title = "UpdateTrain";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        .boxx {
+            max-width: 600px;
+            width: 100%;
+            padding: 0px 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+
+        .form-control {
+            height: 30px;
+            width: 200px;
+            display: block;
+            text-align: center;
+            border: 1px solid #009900;
+            padding: 10px 0px;
+            border-radius: 10px;
+        }
+
+        .ppp {
+            float: left;
+        }
+
+        .immm {
+            height: 70px;
+            width: 150px;
+        }
+
+        .btn-primary, .btn-danger {
+            border: 0;
+            display: table-column;
+            text-align: center;
+            border: 2px solid;
+            width: 120px;
+            height: 30px;
+            outline: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .btn-danger {
+            margin-right: 25px;
+            background-color: rgb(252, 3, 3);
+            float: right;
+        }
+
+        .btn-primary {
+            margin-left: 25px;
+            background-color: #009900;
+            float: left;
+        }
+
+        .error {
+            color: red;
+        }
+
+        hr {
+            background-color: #009900;
+        }
+    </style>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+</head>
+<body>
+
+    <div class="boxx">
+        <h2>Add Route</h2>
+        <hr />
+        @if (TempData["UpdateTrainAlert"] != null)
+        {
+            <div class="alert-success">
+                <strong>@TempData["UpdateTrainAlert"]</strong>
+            </div>
+        }
+        @if (TempData["UpdateTrainFail"] != null)
+        {
+            <div class="alert-danger">
+                <strong>@TempData["UpdateTrainFail"]</strong>
+            </div>
+        }
+        @using (Html.BeginForm("UpdateTrainI", "Admin", FormMethod.Post))
+        {
+            <div class="box" align="center">
+
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.RailId);
+                    <label class="ppp">Train Name:</label>
+                    @Html.ValidationMessageFor(x => x.RNm, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.RNm, new { @class = "form-control" })
+                </div>
+                <div>
+                    <img src="~/img/5.png" class="immm">
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Start:</label>
+                    @Html.ValidationMessageFor(x => x.s_start, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.s_start, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Destination:</label>
+                    @Html.ValidationMessageFor(x => x.s_des, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.s_des, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Schedule Date:</label>
+                    @Html.ValidationMessageFor(x => x.ar_date, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.ar_date, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Schedule Time:</label>
+                    @Html.ValidationMessageFor(x => x.R_tm, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.R_tm, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Ac Seats:</label>
+                    @Html.ValidationMessageFor(x => x.A_seat, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.A_seat, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Ac Ticket Price:</label>
+                    @Html.ValidationMessageFor(x => x.A_F, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.A_F, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Non Ac Seats:</label>
+                    @Html.ValidationMessageFor(x => x.N_seat, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.N_seat, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Ticket Price:</label>
+                    @Html.ValidationMessageFor(x => x.B_F, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.B_F, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label class="ppp">Cabin Seats:</label>
+                    @Html.ValidationMessageFor(x => x.C_seat, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.C_seat, new { @class = "form-control" })
+                </div>
+
+
+                <div class="form-group">
+                    <label class="ppp">Ticket Price:</label>
+                    @Html.ValidationMessageFor(x => x.C_F, "", new { @class = "error" })
+                    @Html.TextBoxFor(x => x.C_F, new { @class = "form-control" })
+                </div>
+
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">SUBMIT</button>
+                <button type="reset" class="btn btn-danger">CANCEL</button>
+
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

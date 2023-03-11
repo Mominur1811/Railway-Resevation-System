@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Railway_Ticket_Book.Context.vehicle>
+
+@{
+    ViewBag.Title = "TList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        body {
+            background-color: #cfd9d68f;
+            font-size: 12px;
+            font-family: "Roboto", "Bw Helder", Helvetica, sans-serif;
+            outline: none;
+            letter-spacing: .25px;
+        }
+        .gg{
+            width:500px;
+            position:absolute;
+            top:15%;
+            left:40%;
+        }
+        .card-header {
+            max-width: 500px;
+            padding: 25px 20px;
+            text-align: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            color: #2E7D32;
+            font-size:18px;
+            font-weight:800;
+            justify-content: space-between;
+        }
+        .hh {
+            max-width: 500px;
+            padding: 25px 20px;
+            text-align: center;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            margin-top: 1px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            
+            justify-content: space-between;
+        }
+        .dt{
+            color:#000000;
+            font-size:14px;
+            font-weight:600;
+        }
+        .Dest {
+            color: #006600;
+            font-size:16px;
+            font-weight:700;
+        }
+        .tc {
+            max-width: 500px;
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            margin-top: 1px;
+            margin-bottom:13px;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .ac {
+            width: 100px;
+            border: 1px solid #39F23F;
+            border-radius: 8px;
+            float: left;
+            background-color: #FDEDEC;
+        }
+        .acc {
+            background-color: #F5EEF8;
+        }
+        p{
+            text-align:center;
+        }
+        .a2 {
+            color: #239B56;
+            font-size:15px;
+        }
+        .a1 {
+            color: #000000;
+            font-size:18px;
+            font-weight:bold;
+        }
+        .a3{
+            color:#000000;
+            font-size:14px;
+        }
+        .btn {
+            width: 70px;
+            background-color: rgb(0,153,0);
+            margin-top: 65px;
+            color:white;
+            font-size:14px;
+            font-weight:500;
+            border-radius:15px;
+        }
+     
+    </style>
+</head>
+
+
+
+
+<div class="gg">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="card-header">
+                @item.RNm
+            </div>
+
+            <div class="hh">
+                <div class="dt"> @item.ar_date.Value.ToShortDateString() @item.R_tm</div>
+                <br />
+                <div class="Dest">
+                    @item.s_start To @item.s_des
+                </div>
+            </div>
+            <div class="tc">
+                <div class="ac">
+                    <div class="acc">
+                        <p class="a1">AC_B</p>
+                        <p class="a2">$@item.A_F</p>
+                    </div>
+                    <div class="acb">
+                        <p class="a3">Ticket @item.A_seat</p>
+                    </div>                   
+                </div>
+                <div class="ac">
+                    <div class="acc">
+                        <p class="a1">CABIN</p>
+                        <p class="a2">$@item.C_F</p>
+                    </div>                  
+                    <div class="acb">
+                        <p class="a3">Ticket @item.C_seat</p>
+                    </div>                  
+                </div>
+                <div class="ac">
+                    <div class="acc">
+                        <p class="a1">S_CHAIR</p>
+                        <p class="a2">$@item.B_F</p>
+                    </div>
+                    <div class="acb">
+                        <p class="a3">Ticket @item.N_seat</p>
+                    </div>
+                    
+                </div>
+                <div>
+                    <a href="@Url.Action("trainSelection","Home",new {TrnId=item.RailId,Ac_chair=item.A_seat ,shovon=item.N_seat,vid_s=item.C_seat,fair1=item.A_F,fair2=item.B_F,fair3=item.C_F})" class="btn">Book</a>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+   
+
+
+

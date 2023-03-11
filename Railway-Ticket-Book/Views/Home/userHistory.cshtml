@@ -1,0 +1,166 @@
+﻿@model List<Railway_Ticket_Book.Context.tranHistory>
+@{
+    ViewBag.Title = "userHistory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        body {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: white;
+            background-image: url('../../img/4002798.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right bottom;
+            background-size: 50%;
+        }
+        .mbb{
+            width:500px;
+            position:absolute;
+            top:20%;
+            left:10%;
+        }
+        .header {
+            height: 50px;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-right: 10px;
+            background-color: white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            color: #00CC00;
+        }
+        .head1,.head2,.pName,.Tname{
+            float:left;
+        }
+       
+        .head3,.pTName,.ttFrom,.ttTo{
+            float:right;
+        }
+        .tFrom,.tDate,.tTime,.tTo,.tPay,.tSeat,.tSeat1{
+            float:left;
+        }
+        .tbody1 {
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-right: 20px;
+            height: 50px;
+            background-color: white;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            color: #00CC00;
+        }
+        .tbody2 {
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-right: 20px;
+            height: 50px;
+            background-color: white;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            color: #00CC00;
+        }
+        .tbody3 {
+            padding-left: 20px;
+            padding-top: 5px;
+            padding-right: 20px;
+            height: 60px;
+            background-color: white;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            margin-bottom: 20px;
+            color: #00CC00;
+        }
+        .pName{
+            width:120px;
+        }
+        .tFrom,.tTo,.tPay,.tDate,.tTime{
+            width:120px;
+        }
+        .head2{
+            margin-left:80px;
+        }
+       
+      
+
+    </style>
+</head>
+<body>
+    <div class="mbb">
+        @foreach (var item in Model)
+        {
+
+          
+            Railway_Ticket_Book.Context.PekkaEntities db = new Railway_Ticket_Book.Context.PekkaEntities();
+            var res = db.vehicles.Where(x => x.RailId == item.Tran_no).First();
+                <div class="header">
+                    <div class="head1">
+                        <img src="~/img/ticketTrain.png" height="30" width="40" />
+                    </div>
+                    <div class="head2">
+                        <b>TRAIN TICKET</b>
+                    </div>
+                </div>
+                <div class="tbody1">
+                        <div class="pName">
+                            PASSENGER<br />
+                            <b>@User.Identity.Name</b>
+                        </div>
+                        <div class="Tname">
+                            TRAIN <br />
+                            <b> @res.RNm</b>
+                           
+                        </div>
+                </div>
+                <div class="tbody2">
+                    <div class="tFrom">
+                        FROM<br />
+                        <b>@res.s_start</b>
+                    </div>
+                    <div class="tDate">
+                        DATE<br />
+                       <b>@res.ar_date.Value.ToShortDateString()</b>
+                    </div>
+                    <div class="tTime">
+                        DEPARATURE<br />
+                       <b>@res.R_tm</b>
+                    </div>
+                </div>
+                <div class="tbody3">
+                    <div class="tTo">
+                        TO<br />
+                        <b>@res.s_des</b>
+                    </div>
+                    <div class="tPay">
+                        Price<br />
+                       <b> @item.amount$</b>
+                    </div>
+                    <div class="tSeat">
+                        SEAT<br />
+                        @{
+                            if (item.Ac > 0)
+                            {
+                                <div class="tSeat1"><b>Ac:@item.Ac ,</b> </div>
+                            }
+                            if (item.Non > 0)
+                            {
+                                <div class="tSeat1"><b>S_Chair:@item.Non ,</b> </div>
+                            }
+                            if (item.cab > 0)
+                            {
+                                <div class="tSeat1"><b>Cabin:@item.cab</b> </div>
+                            }
+
+                        }
+                    </div>
+                </div>
+
+                            }
+
+
+    </div>
+
+</body>

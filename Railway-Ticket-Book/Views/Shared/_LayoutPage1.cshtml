@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        .text_to_navbar {
+            float: left;
+            margin-left: 25px;
+            margin-top: 20px;
+            margin-right: 470px;
+            font-size: 20px;
+            font-weight: 900
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink(".", "Admin", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="text_to_navbar">
+                    Bangladesh<br />
+                    Railway
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Add Train", "Admin", "Admin")</li>
+                    <li>@Html.ActionLink("Train", "TrainList", "Admin")</li>
+                    <li>@Html.ActionLink("User", "UserDetails", "Admin")</li>
+                    <li>@Html.ActionLink("LOGOUT", "AdminLogin", "Admin")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

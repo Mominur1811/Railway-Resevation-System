@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PekkaModelStoreContainer" CdmEntityContainer="PekkaEntities">
+    <EntitySetMapping Name="A_Mas">
+      <EntityTypeMapping TypeName="PekkaModel.A_Mas">
+        <MappingFragment StoreEntitySet="A_Mas">
+          <ScalarProperty Name="AID" ColumnName="AID" />
+          <ScalarProperty Name="A_Mail" ColumnName="A_Mail" />
+          <ScalarProperty Name="A_pass" ColumnName="A_pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="PekkaModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="UID" ColumnName="UID" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="Main" ColumnName="Main" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="TYP" ColumnName="TYP" />
+          <ScalarProperty Name="Pword" ColumnName="Pword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tranHistories">
+      <EntityTypeMapping TypeName="PekkaModel.tranHistory">
+        <MappingFragment StoreEntitySet="tranHistory">
+          <ScalarProperty Name="T_id" ColumnName="T_id" />
+          <ScalarProperty Name="Tran_no" ColumnName="Tran_no" />
+          <ScalarProperty Name="Momin" ColumnName="Momin" />
+          <ScalarProperty Name="Ac" ColumnName="Ac" />
+          <ScalarProperty Name="Non" ColumnName="Non" />
+          <ScalarProperty Name="cab" ColumnName="cab" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="gmail" ColumnName="gmail" />
+          <ScalarProperty Name="sent" ColumnName="sent" />
+          <ScalarProperty Name="s_from" ColumnName="s_from" />
+          <ScalarProperty Name="Des" ColumnName="Des" />
+          <ScalarProperty Name="jouney" ColumnName="jouney" />
+          <ScalarProperty Name="jourtime" ColumnName="jourtime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehicles">
+      <EntityTypeMapping TypeName="PekkaModel.vehicle">
+        <MappingFragment StoreEntitySet="vehicle">
+          <ScalarProperty Name="RailId" ColumnName="RailId" />
+          <ScalarProperty Name="RNm" ColumnName="RNm" />
+          <ScalarProperty Name="s_start" ColumnName="s_start" />
+          <ScalarProperty Name="s_des" ColumnName="s_des" />
+          <ScalarProperty Name="ar_date" ColumnName="ar_date" />
+          <ScalarProperty Name="A_seat" ColumnName="A_seat" />
+          <ScalarProperty Name="N_seat" ColumnName="N_seat" />
+          <ScalarProperty Name="C_seat" ColumnName="C_seat" />
+          <ScalarProperty Name="A_F" ColumnName="A_F" />
+          <ScalarProperty Name="B_F" ColumnName="B_F" />
+          <ScalarProperty Name="C_F" ColumnName="C_F" />
+          <ScalarProperty Name="R_tm" ColumnName="R_tm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

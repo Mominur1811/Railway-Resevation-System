@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PekkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="A_Mas">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A_Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="A_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Main" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="NID" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TYP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tranHistory">
+    <Key>
+      <PropertyRef Name="T_id" />
+    </Key>
+    <Property Name="T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tran_no" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Momin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ac" Type="Int32" />
+    <Property Name="Non" Type="Int32" />
+    <Property Name="cab" Type="Int32" />
+    <Property Name="amount" Type="Int32" />
+    <Property Name="gmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="sent" Type="DateTime" Precision="0" />
+    <Property Name="s_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="jouney" Type="DateTime" Precision="0" />
+    <Property Name="jourtime" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="vehicle">
+    <Key>
+      <PropertyRef Name="RailId" />
+    </Key>
+    <Property Name="RailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RNm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="s_start" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="s_des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ar_date" Type="DateTime" Precision="0" />
+    <Property Name="A_seat" Type="Int32" />
+    <Property Name="N_seat" Type="Int32" />
+    <Property Name="C_seat" Type="Int32" />
+    <Property Name="A_F" Type="Int32" />
+    <Property Name="B_F" Type="Int32" />
+    <Property Name="C_F" Type="Int32" />
+    <Property Name="R_tm" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="PekkaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="A_Mas" EntityType="Self.A_Mas" />
+    <EntitySet Name="customers" EntityType="Self.customer" />
+    <EntitySet Name="tranHistories" EntityType="Self.tranHistory" />
+    <EntitySet Name="vehicles" EntityType="Self.vehicle" />
+  </EntityContainer>
+</Schema>

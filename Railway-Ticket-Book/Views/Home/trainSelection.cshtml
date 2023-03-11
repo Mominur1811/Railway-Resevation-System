@@ -1,0 +1,115 @@
+﻿@model Railway_Ticket_Book.Context.vehicle
+@{
+    ViewBag.Title = "trainSelection";
+}
+
+<head>
+    <style>
+        body {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: white;
+            background-image: url('../../img/31143.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right bottom;
+            background-size: 50%;
+        }
+        .box {
+            max-width: 450px;
+            width: 100%;
+            padding: 25px 30px;
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            transform: translate(-50%,-50%);
+            background-color:white;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+
+        .form-control {
+            height: 45px;
+            width: 450px;
+            margin: 10px auto;
+            margin-left: 35px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+            border: 1px solid #0AA1DD;
+            padding: 14px 10px;
+            border-radius: 10px;
+        }
+
+        .ppp {
+            float: left;
+            margin-left: 35px;
+            color: #0AA1DD;
+        }
+        .btn {
+            width: 280px;
+            margin-left: 35px;
+            background-color: #0AA1DD;
+            color: white;
+        }
+        .h22 {
+            margin-left: 30px;
+            color: #0AA1DD;
+        }
+        hr {
+            background-color: #0AA1DD;
+            border: 1px solid #0AA1DD;
+        }
+        .select1{
+            width:100%;
+        }
+
+    </style>
+</head>
+
+@using (Html.BeginForm("BuyTicket", "Home", FormMethod.Post))
+{
+<div class="box" align="center">
+    <div class="select1">
+        <h2 class="h22">Select Seats</h2>
+        <hr />
+    </div>
+    @if (TempData["SelectTiketInValid"] != null)
+    {
+        <div class="alert-danger">
+            <strong>@TempData["SelectTiketInValid"]</strong>
+        </div>
+    }
+
+    <div class="form-group">
+
+        @Html.HiddenFor(x => x.RailId);
+        <label class="ppp">Ac Seats:</label>
+        @Html.ValidationMessageFor(x => x.A_seat, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.A_seat, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="ppp">Non Ac Seats:</label>
+        @Html.ValidationMessageFor(x => x.N_seat, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.N_seat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="ppp">Cabin Seats:</label>
+        @Html.ValidationMessageFor(x => x.C_seat, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.C_seat, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+
+    </div>
+</div>
+}
+

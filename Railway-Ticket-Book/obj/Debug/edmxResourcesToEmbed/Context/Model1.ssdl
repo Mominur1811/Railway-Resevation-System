@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PekkaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="A_Mas">
+    <Key>
+      <PropertyRef Name="AID" />
+    </Key>
+    <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="A_Mail" Type="varchar(max)" />
+    <Property Name="A_pass" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="UID" />
+    </Key>
+    <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FName" Type="varchar" MaxLength="50" />
+    <Property Name="LName" Type="varchar" MaxLength="50" />
+    <Property Name="Main" Type="varchar(max)" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="NID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TYP" Type="varchar" MaxLength="50" />
+    <Property Name="Pword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tranHistory">
+    <Key>
+      <PropertyRef Name="T_id" />
+    </Key>
+    <Property Name="T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tran_no" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Momin" Type="varchar" MaxLength="50" />
+    <Property Name="Ac" Type="int" />
+    <Property Name="Non" Type="int" />
+    <Property Name="cab" Type="int" />
+    <Property Name="amount" Type="int" />
+    <Property Name="gmail" Type="varchar(max)" />
+    <Property Name="sent" Type="date" />
+    <Property Name="s_from" Type="varchar" MaxLength="50" />
+    <Property Name="Des" Type="varchar" MaxLength="50" />
+    <Property Name="jouney" Type="date" />
+    <Property Name="jourtime" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="vehicle">
+    <Key>
+      <PropertyRef Name="RailId" />
+    </Key>
+    <Property Name="RailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RNm" Type="varchar" MaxLength="50" />
+    <Property Name="s_start" Type="varchar" MaxLength="50" />
+    <Property Name="s_des" Type="varchar" MaxLength="50" />
+    <Property Name="ar_date" Type="date" />
+    <Property Name="A_seat" Type="int" />
+    <Property Name="N_seat" Type="int" />
+    <Property Name="C_seat" Type="int" />
+    <Property Name="A_F" Type="int" />
+    <Property Name="B_F" Type="int" />
+    <Property Name="C_F" Type="int" />
+    <Property Name="R_tm" Type="time" Precision="7" />
+  </EntityType>
+  <EntityContainer Name="PekkaModelStoreContainer">
+    <EntitySet Name="A_Mas" EntityType="Self.A_Mas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tranHistory" EntityType="Self.tranHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehicle" EntityType="Self.vehicle" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

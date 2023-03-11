@@ -1,0 +1,146 @@
+﻿@model Railway_Ticket_Book.Context.tranHistory
+@{
+    ViewBag.Title = "Payment";
+}
+<head>
+    <style>
+        body {
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: white;
+            background-image: url('../../img/4142132.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: right bottom;
+            background-size: 50%;
+        }
+        .box {
+            max-width: 600px;
+            width: 100%;
+            padding: 25px 30px;
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%,-50%);
+            
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+
+        .form-control {
+            height: 35px;
+            width: 220px;
+            margin: 10px auto;
+            margin-left: 35px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+            border: 2px solid #0AA1DD;
+            padding: 14px 10px;
+            border-radius: 5px;
+        }
+
+        .ppp {
+            float: left;
+            margin-left: 35px;
+            color: #0AA1DD;
+            
+        }
+        .btn-primary {
+            width: 220px;
+            margin-left: 35px;
+            margin-right:10px;
+            background-color: #0AA1DD;
+        }
+        .btn-danger {
+            width: 220px;
+            margin-left: 45px;
+            background-color: #F94C66;
+        }
+        .pay1{
+            width:100%;
+            height:70px;
+        }
+        .pay2 {
+            width: 100%;
+            height: 70px;
+            margin-bottom:20px;
+        }
+
+        h4 {
+            color: #5FD068;
+        }
+
+        h3 {
+            color: #5FD068;
+        }
+        h2 {
+            color: #0AA1DD;
+        }
+
+        hr {
+            background-color: #0AA1DD;
+            border: 1px solid #0AA1DD;
+        }
+     </style>
+    
+</head>
+
+
+
+@using (Html.BeginForm("SavePayment", "Home", FormMethod.Post))
+{
+<div class="box" align="center">
+    <div class="pay1">
+        <h3>Payment Method:</h3>
+        <h4>Bkash/Nagad No: 01980655515</h4>
+        <br />
+    </div>
+    <div class="pay2">
+        <h2>Make Payment</h2>
+        <hr />
+    </div>
+    
+    <div class="form-group">
+
+        @Html.HiddenFor(x => x.Ac)
+        @Html.HiddenFor(x => x.Non)
+        @Html.HiddenFor(x => x.cab)
+        <label class="ppp">Train Id</label>
+        @Html.ValidationMessageFor(x => x.Tran_no, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Tran_no, new { @class = "form-control", @readonly="readonly" })
+    </div>
+
+    <div class="form-group">
+
+
+        <label class="ppp">Email</label>
+        @Html.ValidationMessageFor(x => x.gmail, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.gmail, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label class="ppp">Transaction Id.</label>
+        @Html.ValidationMessageFor(x => x.Momin, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.Momin, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="ppp">Pay</label>
+        @Html.ValidationMessageFor(x => x.amount, "", new { @class = "error" })
+        @Html.TextBoxFor(x => x.amount, new { @class = "form-control",@readonly="readonly" })
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Pay</button>
+        <button type="reset" class="btn btn-danger"><a href="@Url.Action("Index","Home")">CANCEL</a></button>
+     </div>
+</div>
+}
+

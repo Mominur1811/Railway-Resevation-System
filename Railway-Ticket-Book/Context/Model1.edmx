@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PekkaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_Mas">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="A_Mail" Type="varchar(max)" />
+          <Property Name="A_pass" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="50" />
+          <Property Name="LName" Type="varchar" MaxLength="50" />
+          <Property Name="Main" Type="varchar(max)" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="NID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TYP" Type="varchar" MaxLength="50" />
+          <Property Name="Pword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tranHistory">
+          <Key>
+            <PropertyRef Name="T_id" />
+          </Key>
+          <Property Name="T_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tran_no" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Momin" Type="varchar" MaxLength="50" />
+          <Property Name="Ac" Type="int" />
+          <Property Name="Non" Type="int" />
+          <Property Name="cab" Type="int" />
+          <Property Name="amount" Type="int" />
+          <Property Name="gmail" Type="varchar(max)" />
+          <Property Name="sent" Type="date" />
+          <Property Name="s_from" Type="varchar" MaxLength="50" />
+          <Property Name="Des" Type="varchar" MaxLength="50" />
+          <Property Name="jouney" Type="date" />
+          <Property Name="jourtime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="RailId" />
+          </Key>
+          <Property Name="RailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RNm" Type="varchar" MaxLength="50" />
+          <Property Name="s_start" Type="varchar" MaxLength="50" />
+          <Property Name="s_des" Type="varchar" MaxLength="50" />
+          <Property Name="ar_date" Type="date" />
+          <Property Name="A_seat" Type="int" />
+          <Property Name="N_seat" Type="int" />
+          <Property Name="C_seat" Type="int" />
+          <Property Name="A_F" Type="int" />
+          <Property Name="B_F" Type="int" />
+          <Property Name="C_F" Type="int" />
+          <Property Name="R_tm" Type="time" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="PekkaModelStoreContainer">
+          <EntitySet Name="A_Mas" EntityType="Self.A_Mas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tranHistory" EntityType="Self.tranHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vehicle" EntityType="Self.vehicle" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PekkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="A_Mas">
+          <Key>
+            <PropertyRef Name="AID" />
+          </Key>
+          <Property Name="AID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="A_Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="A_pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="customer">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Main" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="NID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TYP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tranHistory">
+          <Key>
+            <PropertyRef Name="T_id" />
+          </Key>
+          <Property Name="T_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tran_no" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Momin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ac" Type="Int32" />
+          <Property Name="Non" Type="Int32" />
+          <Property Name="cab" Type="Int32" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="gmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sent" Type="DateTime" Precision="0" />
+          <Property Name="s_from" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jouney" Type="DateTime" Precision="0" />
+          <Property Name="jourtime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="vehicle">
+          <Key>
+            <PropertyRef Name="RailId" />
+          </Key>
+          <Property Name="RailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RNm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_start" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="s_des" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ar_date" Type="DateTime" Precision="0" />
+          <Property Name="A_seat" Type="Int32" />
+          <Property Name="N_seat" Type="Int32" />
+          <Property Name="C_seat" Type="Int32" />
+          <Property Name="A_F" Type="Int32" />
+          <Property Name="B_F" Type="Int32" />
+          <Property Name="C_F" Type="Int32" />
+          <Property Name="R_tm" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityContainer Name="PekkaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="A_Mas" EntityType="Self.A_Mas" />
+          <EntitySet Name="customers" EntityType="Self.customer" />
+          <EntitySet Name="tranHistories" EntityType="Self.tranHistory" />
+          <EntitySet Name="vehicles" EntityType="Self.vehicle" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PekkaModelStoreContainer" CdmEntityContainer="PekkaEntities">
+          <EntitySetMapping Name="A_Mas">
+            <EntityTypeMapping TypeName="PekkaModel.A_Mas">
+              <MappingFragment StoreEntitySet="A_Mas">
+                <ScalarProperty Name="AID" ColumnName="AID" />
+                <ScalarProperty Name="A_Mail" ColumnName="A_Mail" />
+                <ScalarProperty Name="A_pass" ColumnName="A_pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="customers">
+            <EntityTypeMapping TypeName="PekkaModel.customer">
+              <MappingFragment StoreEntitySet="customer">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="Main" ColumnName="Main" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+                <ScalarProperty Name="TYP" ColumnName="TYP" />
+                <ScalarProperty Name="Pword" ColumnName="Pword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tranHistories">
+            <EntityTypeMapping TypeName="PekkaModel.tranHistory">
+              <MappingFragment StoreEntitySet="tranHistory">
+                <ScalarProperty Name="T_id" ColumnName="T_id" />
+                <ScalarProperty Name="Tran_no" ColumnName="Tran_no" />
+                <ScalarProperty Name="Momin" ColumnName="Momin" />
+                <ScalarProperty Name="Ac" ColumnName="Ac" />
+                <ScalarProperty Name="Non" ColumnName="Non" />
+                <ScalarProperty Name="cab" ColumnName="cab" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="gmail" ColumnName="gmail" />
+                <ScalarProperty Name="sent" ColumnName="sent" />
+                <ScalarProperty Name="s_from" ColumnName="s_from" />
+                <ScalarProperty Name="Des" ColumnName="Des" />
+                <ScalarProperty Name="jouney" ColumnName="jouney" />
+                <ScalarProperty Name="jourtime" ColumnName="jourtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vehicles">
+            <EntityTypeMapping TypeName="PekkaModel.vehicle">
+              <MappingFragment StoreEntitySet="vehicle">
+                <ScalarProperty Name="RailId" ColumnName="RailId" />
+                <ScalarProperty Name="RNm" ColumnName="RNm" />
+                <ScalarProperty Name="s_start" ColumnName="s_start" />
+                <ScalarProperty Name="s_des" ColumnName="s_des" />
+                <ScalarProperty Name="ar_date" ColumnName="ar_date" />
+                <ScalarProperty Name="A_seat" ColumnName="A_seat" />
+                <ScalarProperty Name="N_seat" ColumnName="N_seat" />
+                <ScalarProperty Name="C_seat" ColumnName="C_seat" />
+                <ScalarProperty Name="A_F" ColumnName="A_F" />
+                <ScalarProperty Name="B_F" ColumnName="B_F" />
+                <ScalarProperty Name="C_F" ColumnName="C_F" />
+                <ScalarProperty Name="R_tm" ColumnName="R_tm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,157 @@
+﻿@model Railway_Ticket_Book.Context.searchTrain
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <style>
+        .photo {
+            max-width: 300px;
+            height: 400px;
+            position: absolute;
+            top: 65%;
+            left: 10%;
+        }
+
+        .photo1 {
+            max-width: 300px;
+            height: 400px;
+            position: absolute;
+            top: 70%;
+            left: 40%;
+        }
+
+        .photo2 {
+            max-width: 300px;
+            height: 400px;
+            position: absolute;
+            top: 70%;
+            left: 70%;
+        }
+
+        .hello {
+            max-width: 550px;
+            width: 100%;
+            padding: 25px 30px;
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            transform: translate(-50%,-50%);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-control {
+            border: 2px solid black;
+            width: 220px;
+            text-transform:uppercase;
+        }
+        #dateM {
+            background-image: url('../../img/calendar.png');
+            background-repeat: no-repeat;
+            background-color: white;
+            background-position: right center;
+            padding-right:10px;
+        }
+
+        .ppp {
+            float: left;
+            font-weight: 700;
+            font-size: 14px;
+            color: black;
+        }
+
+        hr {
+            background-color: rgb(0,153,0);
+            height: 1px;
+        }
+
+        .btn {
+            width: 220px;
+            background-color: rgb(0,153,0);
+            margin-top: 22px;
+        }
+    </style>
+    <link href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/themes/cupertino/jquery-ui.css" rel="stylesheet" />
+
+    @section Scripts{
+
+
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.13.1.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $("#dateM").datepicker({
+                minDate: 0, maxDate: 5
+            });
+        }
+            );
+
+        </script>
+    }
+</head>
+<div class="hello">
+    <h2>Search </h2>
+    <hr />
+    @if (TempData["TrainNotFound"] != null)
+    {
+        <div class="alert-danger">
+            <strong>@TempData["TrainNotFound"]</strong>
+        </div>
+    }
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="box" align="center">
+
+
+            <div class="form-group">
+                <label class="ppp">From</label>
+                @Html.ValidationMessageFor(x => x.station1, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.station1, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label class="ppp">To</label>
+                @Html.ValidationMessageFor(x => x.station2, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.station2, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label class="ppp">Date of Journey</label>
+                @Html.ValidationMessageFor(x => x.journeyDate, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.journeyDate, new { @class = "form-control", @readonly = "readoly", id = "dateM" })
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Find Ticket</button>
+            </div>
+        </div>
+    }
+
+</div>
+
+<div class="photo">
+    <img src="~/img/searchTrain.png" height="250" width="300" />
+    <h3><b>Search</b></h3>
+    <h5>Choose your origin, destination,<br />journey dates and search for trains</h5>
+</div>
+<div class="photo1">
+    <img src="~/img/Book.PNG" height="220" width="300" />
+    <h3><b>Select</b></h3>
+    <h5>Select your desired trip and choose<br /> your seats </h5>
+</div>
+<div class="photo2">
+    <img src="~/img/onlinePayment.png" height="220" width="300" />
+    <h3><b>Pay</b></h3>
+    <h5>Pay for the tickets via Bkash / Nagad<br /> or Visa Card </h5>
+</div>
+
